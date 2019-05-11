@@ -15,8 +15,20 @@
     <script src={{url_for('static', filename='js/jquery.js')}}></script>
     <script src={{url_for('static', filename='js/mappa-test.js')}}></script>
     <link rel="stylesheet" href={{url_for('static', filename='css/style.css')}}/>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+    <script type="text/template" id="popup-template">
+        {% include 'popup.html' %}
+    </script>
 </head>
 <body>
-<div id="mapid"></div>
+<div class="header">
+    <div class="logo-container">
+          <img class="logo-img" src={{url_for('static', filename="img/logo.svg")}} alt="GIPO-weather" width="65" height="65">
+          <div class="logo-text">GIPO-weather</div>
+    </div>
+</div>
+<div class="map-wrapper">
+    <div id="mapid"></div>
+</div>
 </body>
 </html>

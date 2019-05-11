@@ -30,3 +30,17 @@ class Geocoder:
             ['GeoObject']['metaDataProperty']['GeocoderMetaData']['text']
         lon, lat = point.split(' ')
         return Coords(lat, lon, title)
+
+    def get_title(self, lat, lon):
+        city_gobj = requests.get(f'{self.BASE_URL}'
+                                 f'?geocode={lat},{lon}'
+                                 f'&apikey={config["YANDEX_GEOCODER_KEY"]}'
+                                 '&kind=locality'
+                                 '&sco=latlong'
+                                 '&format=json')
+        resp_json_payload = city_gobj.json()
+        point = resp_json_payload['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos']
+        title = resp_json_payload['response']['GeoObjectCollection']['featureMember'][0] \
+            ['GeoObject']['metaDataProperty']['GeocoderMetaData']['text']
+        lon, lat = point.split(' ')
+        return Coords(lat, lon, title)

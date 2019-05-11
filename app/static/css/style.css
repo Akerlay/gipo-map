@@ -1,1 +1,78 @@
-#mapid { height: 1000px; }
+#mapid {
+    height: 1000px;
+}
+
+.popup-param-title{
+    line-height: 1.57;
+    color: #000;
+    padding: 0 8px 0 0;
+}
+
+.popup-wrapper{
+    font-size: 14px;
+}
+
+.temp-icon{
+    width: 44px;
+    height: 44px;
+    float: left;
+    margin: 1px 12px 5px 0;
+}
+
+.temp-value{
+    font-size: 28px;
+}
+
+.popup-temp{
+    display: block;
+}
+
+.popup-params{
+    width: 100%;
+}
+
+.map-wrapper{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:hidden;
+    z-index: 0;
+}
+
+.leaflet-top {
+    top: 50%;
+}
+
+.header{
+    width: 100%;
+    height: 70px;
+    z-index: 1;
+    position:absolute;
+    display: table;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: white;
+}
+
+.logo-container{
+    display: table;
+    width: 160px;
+    height: 100%;
+}
+
+.logo-img{
+    display: table-cell;
+}
+
+.logo-text{
+    display: table-cell;
+    width: 100%;
+    vertical-align: top;
+    font-size: 36px;
+    padding-top: 12px;
+    white-space: nowrap;;
+}

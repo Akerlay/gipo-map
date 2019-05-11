@@ -1,0 +1,35 @@
+<div class="popup-wrapper">
+    <div class="popup-title">
+        <%=title%>
+    </div>
+    <div class="popup-temp">
+        <div class="temp-icon">
+            <img class="icon" src=<%=icon%>>
+        </div>
+        <div class="temp-value">
+            <%=temp%>°
+        </div>
+    </div>
+
+    <table class="popup-params">
+        <tbody>
+            <tr class="popup-param">
+                <td class="popup-param-title">Ветер</td>
+
+            <td class="popup-param-value">
+                <span class="wind-speed"><%=wind_speed%> м/с</span>
+            </td>
+            </tr>
+            <tr class="popup-param">
+                <td class="popup-param-title">Давление</td>
+
+            <td class="popup-param-value"><%=pressure%> мм рт. ст.</td>
+            </tr>
+            <tr class="popup-param">
+                <td class="popup-param-title">Влажность</td>
+
+            <td class="popup-param-value"><%=humidity%>%</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
