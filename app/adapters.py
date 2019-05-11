@@ -37,18 +37,10 @@ config = Config()
 #         return self.days.__iter__()
 
 
-def convert_to_fc(resp_json):
-    return {
-        'lat': resp_json['info']['lat'],
-        'lon': resp_json['info']['lon'],
-        'temp': resp_json['fact']['temp'],
-        'feels': resp_json['fact']['feels_like'],
-        'icon': resp_json['fact']['icon'],
-        'condition': resp_json['fact']['condition']
-        }
-
-
 class Adapter:
+    def get_forecast(self):
+        raise NotImplementedError
+
     def get_forecast_title(self, city_title: str):
         raise NotImplementedError
 
@@ -70,10 +62,35 @@ class YandexWeatherAdapter(Adapter):
     def _get_forecast(self, coords: Coords):
         response = requests.get(f'{self.BASE_URL}?lat={coords.latitude}&lon={coords.longitude}&lang=ru_RU',
                                 headers={'X-Yandex-API-Key': config['YANDEX_WEATHER_KEY']})
-        return coords.title, convert_to_fc(response.json())
+        return coords.title, self._convert_to_fc(response.json())
+
+    @staticmethod
+    def _convert_to_fc(resp_json):
+        return {
+            'lat': resp_json['info']['lat'],
+            'lon': resp_json['info']['lon'],
+            'temp': resp_json['fact']['temp'],
+            'feels': resp_json['fact']['feels_like'],
+            'icon': resp_json['fact']['icon'],
+            'condition': resp_json['fact']['condition']
+        }
 
 
 class OpenWeatherAdapter(Adapter):
+    def get_forecast(self):
+        response = requests.get('http://api.openweathermap.org/data/2.5/box/city?bbox=28,68,58,56,7&appid=' + config['OWM_KEY'])
+        print(json.dumps(response.json()))
+        return [self._convert_to_fc(place) for place in response.json()['list']]
+
+    @staticmethod
+    def _convert_to_fc(resp_json):
+        return {
+            'lat': resp_json['coord']['Lat'],
+            'lon': resp_json['coord']['Lon'],
+            'temp': resp_json['main']['temp'],
+            'title': resp_json['name']
+        }
+
     def get_forecast_coords(self, lat: str, lon: str):
         raise NotImplementedError
 
