@@ -25,9 +25,3 @@ docker-compose up
 
 * [Leaflet](https://github.com/Leaflet/Leaflet) - JS maps framework
 * [Flask](http://flask.pocoo.org/) - The web framework used
-
-## Authors
-
-* **Kirill Mineev** - *python/js/docker* - [Akerlay](https://github.com/Akerlay)
-* **Mikhail Selyankin** - *python* - [selyankin](https://github.com/selyankin)
-* **Davyd Norin** - *html/css*
