@@ -23,7 +23,7 @@ if __name__ == '__main__':
     print('Configuring docker-compose')
     geocoder = input('YANDEX_GEOCODER_KEY: ')
     owm = input('OWM_KEY: ')
-    print('"docker-compose.yml generated!"')
+    print('docker-compose.yml generated!')
 
     with open('docker-compose.yml', 'w') as f:
         f.write(template % (geocoder, owm))
