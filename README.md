@@ -6,7 +6,7 @@ GIPO project wich connects Leaflet.js maps and openweathemap api.
 ## Deploying on your server
 
 ### Building
-Before launch commands below, cd into cloned repo directory and configure api tokens by
+Before launch commands below, cd into cloned repo and configure api tokens by
 ```bash
 python3 configure.py
 ```
