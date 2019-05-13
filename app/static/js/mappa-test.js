@@ -10,10 +10,10 @@ function setup(){
     accessToken: 'pk.eyJ1IjoiYWtlcmxheSIsImEiOiJjanZqampjejAwaGMwNDZrM3RvMnFxdTF0In0.wpnO6xhUSOC6m0HK3MHkfQ'
   }).addTo(mymap);
 
-  L.tileLayer("https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid={appid}", {
-    maxZoom: 18,
-    appid: '64ed697ea8b17ac57034a397407b4116'
-  }).addTo(mymap);
+  // L.tileLayer("https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid={appid}", {
+  //   maxZoom: 18,
+  //   appid: '64ed697ea8b17ac57034a397407b4116'
+  // }).addTo(mymap);
 
   mymap.addEventListener('click', function(ev) {
     lat = ev.latlng.lat;
