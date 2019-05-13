@@ -1,8 +1,5 @@
 import requests
-from app.config import Config
-
-
-config = Config()
+import os
 
 
 class Coords:
@@ -22,7 +19,7 @@ class Geocoder:
     def get_coords(city_title: str) -> Coords:
         city_gobj = requests.get(f'{Geocoder.BASE_URL}'
                                  f'?geocode={city_title}'
-                                 f'&apikey={config["YANDEX_GEOCODER_KEY"]}'
+                                 f'&apikey={os.environ["YANDEX_GEOCODER_KEY"]}'
                                  '&format=json')
         resp_json_payload = city_gobj.json()
         point = resp_json_payload['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']['Point']['pos']
@@ -34,7 +31,7 @@ class Geocoder:
     def get_title(self, lat, lon):
         city_gobj = requests.get(f'{self.BASE_URL}'
                                  f'?geocode={lat},{lon}'
-                                 f'&apikey={config["YANDEX_GEOCODER_KEY"]}'
+                                 f'&apikey={os.environ["YANDEX_GEOCODER_KEY"]}'
                                  '&kind=locality'
                                  '&sco=latlong'
                                  '&format=json')

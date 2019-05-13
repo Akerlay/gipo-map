@@ -1,10 +1,7 @@
 import requests
 from app.geocoder import Geocoder, Coords
-from app.config import Config
 import json
-
-
-config = Config()
+import os
 
 
 class OpenWeatherAdapter:
@@ -15,9 +12,7 @@ class OpenWeatherAdapter:
         real_pos = self.geocoder.get_title(lat, lon)
         response = requests.get(
             f'http://api.openweathermap.org/data/2.5/weather?lat={real_pos.latitude}'
-            f'&lon={real_pos.longitude}&units=metric&lang=ru&appid=' + config['OWM_KEY'])
-        print(json.dumps(response.json()))
-        print(type(response.json()))
+            f'&lon={real_pos.longitude}&units=metric&lang=ru&appid=' + os.environ['OWM_KEY'])
         return self._convert_to_fc(real_pos, response.json())
 
     @staticmethod
