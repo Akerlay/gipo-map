@@ -1,12 +1,12 @@
 template = '''version: '3'
 services:
   flask:
-    build: ./src
-    command: /src/inception.sh
+    build: ./flask
+    command: /flask/inception.sh
     stdin_open: true
     tty: true
     volumes:
-      - ./src:/app
+      - ./flask:/app
     environment:
       YANDEX_GEOCODER_KEY: "%s"
       OWM_KEY: "%s"
