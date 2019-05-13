@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>GIPO - maps</title>
+    <link rel="stylesheet" href={{url_for('static', filename='css/leaflet.css')}}/>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mappa-mundi@0.0.4"></script>
+    <script src={{url_for('static', filename='js/jquery.js')}}></script>
+    <script src={{url_for('static', filename='js/mappa-test.js')}}></script>
+    <link rel="stylesheet" href={{url_for('static', filename='css/style.css')}}/>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+    <script type="text/template" id="popup-template">
+        {% include 'popup.html' %}
+    </script> 
+    <style type="text/css"><link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&amp;subset=cyrillic" rel="stylesheet"></style>
+  
+</head>
+<body>
+  {% include 'header.html' %}
+<div class="map-wrapper">
+    <div id="mapid"></div>
+</div>
+</body>
+</html>
