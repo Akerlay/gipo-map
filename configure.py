@@ -18,6 +18,10 @@ services:
       - flask
     ports:
       - 80:80
+      
+ 
+  redis:
+    build: ./redis
 '''
 if __name__ == '__main__':
     print('Configuring docker-compose')

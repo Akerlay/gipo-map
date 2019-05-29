@@ -15,7 +15,6 @@ def index():
 @app.route('/get-weather', methods=['POST'])
 def get_weather():
     args = request.form
-    print(request.remote_addr, request.form)
     response = jsonify(owm.get_forecast(args['lat'], args['lon']))
 
     response.headers.add('Access-Control-Allow-Origin', '*')

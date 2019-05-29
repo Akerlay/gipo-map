@@ -2,18 +2,28 @@ import requests
 from app.geocoder import Geocoder, Coords
 import json
 import os
+from app.caching import Cache
 
 
 class OpenWeatherAdapter:
     def __init__(self):
         self.geocoder = Geocoder()
+        self.cache = Cache(30*60)
 
     def get_forecast(self, lat, lon):
         real_pos = self.geocoder.get_title(lat, lon)
+        key = f"{real_pos.latitude}-{real_pos.longitude}"
+        cahced_value = self.cache.get(key)
+        if cahced_value:
+            return json.loads(cahced_value)
+
         response = requests.get(
             f'http://api.openweathermap.org/data/2.5/weather?lat={real_pos.latitude}'
             f'&lon={real_pos.longitude}&units=metric&lang=ru&appid=' + os.environ['OWM_KEY'])
-        return self._convert_to_fc(real_pos, response.json())
+
+        forecast = self._convert_to_fc(real_pos, response.json())
+        self.cache.set(key, json.dumps(forecast))
+        return forecast
 
     @staticmethod
     def _convert_to_fc(coords, resp_json):
