@@ -1,4 +1,3 @@
-const server = "http://0.0.0.0";
 let mymap;
 
 
@@ -21,11 +20,33 @@ function setup(){
     showPopup(lat, lon)
   });
 
+  document.getElementById('sr-button').addEventListener('click', findCity);
+  $('#sr-input').keypress(function(event){
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if(keycode == '13'){
+		findCity()
+	}
+
+  });
+}
+
+function findCity() {
+    city = document.getElementById('sr-input').value;
+    resp = $.ajax({
+      url: '/find-city',
+      method: 'POST',
+      data: {'city': city},
+      async: false,
+      dataType: 'json'
+    }).responseJSON;
+    mymap.panTo(new L.LatLng(resp['lat'], resp['lon']));
+    showPopup(resp['lat'], resp['lon'])
+
 }
 
 function showPopup(lat, lon) {
   weather = $.ajax({
-                  url: server + "/get-weather",
+                  url: "/get-weather",
                   method: 'POST',
                   data: {'lat': lat, 'lon': lon},
                   async: false,

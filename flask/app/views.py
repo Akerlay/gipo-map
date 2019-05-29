@@ -2,8 +2,9 @@ from flask import render_template, flash, redirect, jsonify, request
 from app import app
 # from app.forms import CityForm
 from app.adapters import OpenWeatherAdapter
+from app.geocoder import Geocoder
 
-
+geocoder = Geocoder()
 owm = OpenWeatherAdapter()
 
 
@@ -19,3 +20,10 @@ def get_weather():
 
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
+
+
+@app.route('/find-city', methods=['POST'])
+def find_city():
+    args = request.form
+    pos = geocoder.get_coords(args['city'])
+    return jsonify({'lat': pos.latitude, 'lon': pos.longitude})
