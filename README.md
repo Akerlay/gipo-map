@@ -1,6 +1,6 @@
 # GIPO-maps
 
-GIPO project wich connects Leaflet.js maps and openweathemap api.
+GIPO-maps is a service that connects the Leaflet.js maps and openweathemap api.
 ![Example](https://pp.userapi.com/c849336/v849336332/192b05/mk2girpOulg.jpg)
 
 ## Deploying on your server
@@ -24,4 +24,4 @@ docker-compose up
 ## Built With
 
 * [Leaflet](https://github.com/Leaflet/Leaflet) - JS maps framework
-* [Flask](http://flask.pocoo.org/) - The web framework used
+* [Flask](http://flask.pocoo.org/) - python3 web framework
