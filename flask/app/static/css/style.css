@@ -7,7 +7,10 @@
 }
 
 .sb-img{
-    width: 15px
+    width: 18px;
+    height: 18px;
+    /* margin: auto; */
+    padding-top: 5px;
 }
 
 :focus {
@@ -73,9 +76,14 @@ button:active {
     width: 350px;
     height: 28px;
     padding-left:10px;
-    border: 0px solid;
+    /* border: 0px solid; */
     border-radius: 20px;
     color: black;
+    border-style: none;
+    background-color: #ffffffb5;
+}
+
+.search-input:focus{
     background-color: #ffffff;
 }
 
@@ -88,9 +96,11 @@ button:active {
 
 .search-button{
     font-size: 20px;
-    height: 32px;
+    height: 30px;
+    width: 30px;
     color: black;
     border-radius: 100px;
+    border-style: none;
     /* border:1px solid; */
     background-color: #ffffff;
 }
