@@ -1,7 +1,7 @@
 # GIPO-maps
 
 GIPO-maps is a service that connects the Leaflet.js maps and openweathemap api.
-![Example](https://pp.userapi.com/c849336/v849336332/192b05/mk2girpOulg.jpg)
+![Example](https://pp.userapi.com/c854128/v854128496/5f0db/w0C32kRGGD8.jpg)
 
 ## Deploying on your server
 
