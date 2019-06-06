@@ -1,3 +1,4 @@
+
 <div class="header">
     <div class="logo-container">
       	<img class="logo-img" src={{url_for('static', filename="img/icon.png")}} alt="GIPO-weather" width="65" height="65">
@@ -7,7 +8,9 @@
         <div class="search-placeholder">
             <input class="search-input" id="sr-input" type="text" name="" placeholder="Город или район">
             <div class="search-button-placeholder">
-                <button class="search-button" id="sr-button" type="submit">Поиск</button>
+                <button class="search-button" id="sr-button" type="submit">
+                    <img class="sb-img" src="{{url_for("static", filename="img/search.png")}}">
+                </button>
             </div>
         </div>
     </div>
